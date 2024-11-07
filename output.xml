@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1 (Python 3.12.6 on win32)" generated="2024-11-05T13:23:30.961109" rpa="false" schemaversion="5">
+<suite id="s1" name="Passwod Toggle Visibility" source="c:\Users\MikhaellaDenesseAnsa\EPFlow_POC\Tests\Passwod_Toggle_Visibility.robot">
+<test id="s1-t1" name="Verify Toggle button password masking" line="39">
+<kw name="Open Browser &amp; Maximize Window" owner="common_keyword">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-11-05T13:23:31.309576" level="INFO">Opening browser 'chrome' to base url 'https://epflowui-testflow.azurewebsites.net/auth/login'.</msg>
+<arg>${LOGIN_URL}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-11-05T13:23:31.309576" elapsed="3.795486"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-11-05T13:23:35.106061" elapsed="0.145614"/>
+</kw>
+<kw name="Title Should Be" owner="SeleniumLibrary">
+<msg time="2024-11-05T13:23:35.260837" level="INFO">Page title is 'EP Flow'.</msg>
+<arg>${PAGE_TITLE}</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="PASS" start="2024-11-05T13:23:35.252182" elapsed="0.008655"/>
+</kw>
+<arg>${CHROME}</arg>
+<doc>This keyword opens a specifc browser and maximizes its window.</doc>
+<status status="PASS" start="2024-11-05T13:23:31.309065" elapsed="3.951772"/>
+</kw>
+<kw name="Validate username and password field">
+<kw name="Page Should Contain Textfield" owner="SeleniumLibrary">
+<msg time="2024-11-05T13:23:35.296380" level="INFO">Current page contains text field 'id=login_username'.</msg>
+<arg>${LOGIN_USERNAME_BOX}</arg>
+<doc>Verifies text field ``locator`` is found from current page.</doc>
+<status status="PASS" start="2024-11-05T13:23:35.262991" elapsed="0.033898"/>
+</kw>
+<kw name="Page Should Contain Textfield" owner="SeleniumLibrary">
+<msg time="2024-11-05T13:23:35.336922" level="INFO">Current page contains text field 'id=login_password'.</msg>
+<arg>${LOGIN_PASSWORD_BOX}</arg>
+<doc>Verifies text field ``locator`` is found from current page.</doc>
+<status status="PASS" start="2024-11-05T13:23:35.296889" elapsed="0.040033"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-05T13:23:35.337926" level="INFO">Typing text 'm.ansay@energin.co' into text field 'id=login_username'.</msg>
+<arg>${LOGIN_USERNAME_BOX}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-05T13:23:35.337926" elapsed="0.229256"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-05T13:23:35.571880" level="INFO">Typing text 'P@ssword1234' into text field 'id=login_password'.</msg>
+<arg>${LOGIN_PASSWORD_BOX}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-05T13:23:35.567182" elapsed="0.153327"/>
+</kw>
+<status status="PASS" start="2024-11-05T13:23:35.261860" elapsed="0.458649"/>
+</kw>
+<kw name="Click the toggle button to unmask">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-11-05T13:23:35.722544" level="INFO">Clicking element 'xpath=(//*[name()='svg'])[3]'.</msg>
+<arg>xpath=(//*[name()='svg'])[3]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-05T13:23:35.721530" elapsed="0.046714"/>
+</kw>
+<status status="PASS" start="2024-11-05T13:23:35.720509" elapsed="0.047735"/>
+</kw>
+<kw name="Verify the password is now unmasked">
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2024-11-05T13:23:35.799413" level="INFO">${unmasked_type} = text</msg>
+<var>${unmasked_type}</var>
+<arg>${LOGIN_PASSWORD_BOX}</arg>
+<arg>type</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2024-11-05T13:23:35.773747" elapsed="0.025666"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${unmasked_type}</arg>
+<arg>text</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-11-05T13:23:35.799413" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-11-05T13:23:35.772733" elapsed="0.026680"/>
+</kw>
+<kw name="Click the toggle button to unmask">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-11-05T13:23:35.799413" level="INFO">Clicking element 'xpath=(//*[name()='svg'])[3]'.</msg>
+<arg>xpath=(//*[name()='svg'])[3]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-05T13:23:35.799413" elapsed="0.074868"/>
+</kw>
+<status status="PASS" start="2024-11-05T13:23:35.799413" elapsed="0.074868"/>
+</kw>
+<kw name="Check Password Masking">
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2024-11-05T13:23:35.903118" level="INFO">${type} = password</msg>
+<var>${type}</var>
+<arg>${LOGIN_PASSWORD_BOX}</arg>
+<arg>type</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2024-11-05T13:23:35.879514" elapsed="0.023604"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${type}</arg>
+<arg>password</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-11-05T13:23:35.903627" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-11-05T13:23:35.879514" elapsed="0.024113"/>
+</kw>
+<status status="PASS" start="2024-11-05T13:23:31.297764" elapsed="4.606926"/>
+</test>
+<doc>Verify Password Toggle Visibility</doc>
+<status status="PASS" start="2024-11-05T13:23:30.965179" elapsed="4.942979"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Passwod Toggle Visibility">Passwod Toggle Visibility</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
